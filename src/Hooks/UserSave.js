@@ -9,7 +9,7 @@ export const saveUser = (user, gender, date, number) => {
       userDate: date,
     };
   
-    fetch(`https://run-the-stack-server-delta.vercel.app/users/${user?.email}`, {
+    fetch(`http://localhost:5000/users/${user?.email}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json'

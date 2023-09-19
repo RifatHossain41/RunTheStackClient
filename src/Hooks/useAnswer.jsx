@@ -4,7 +4,7 @@ const useAnswer = () => {
   const [answers, setAnswers] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("http://https://run-the-stack-server-delta.vercel.app/answer")
+    fetch("http://http://localhost:5000/answer")
       .then((res) => res.json())
       .then((data) => {
         setAnswers(data);

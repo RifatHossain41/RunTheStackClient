@@ -16,7 +16,7 @@ const AskQuestion = () => {
       tags: data.tags,
       
     };
-    fetch("https://run-the-stack-server-delta.vercel.app/question", {
+    fetch("http://localhost:5000/question", {
       method: "POST",
       headers: {
         "content-type": "application/json",

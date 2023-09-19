@@ -23,7 +23,7 @@ const MySelectedClass = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `http://https://run-the-stack-server-delta.vercel.app/carts/${item._id}`,
+          `http://http://localhost:5000/carts/${item._id}`,
           {
             method: "DELETE",
           }

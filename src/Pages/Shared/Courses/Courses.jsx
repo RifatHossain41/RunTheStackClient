@@ -12,10 +12,10 @@ const Courses = () => {
     setShowAll(true);
   };
 
-  // https://run-the-stack-server-delta.vercel.app
+  // http://localhost:5000
 
   useEffect(() => {
-    fetch("https://run-the-stack-server-delta.vercel.app/courses")
+    fetch("http://localhost:5000/courses")
       .then((res) => res.json())
       .then((data) => setCourses(data));
   }, []);

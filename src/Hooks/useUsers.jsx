@@ -4,7 +4,7 @@ const useUsers = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("https://run-the-stack-server-delta.vercel.app/users")
+    fetch("http://localhost:5000/users")
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);

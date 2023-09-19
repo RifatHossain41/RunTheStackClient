@@ -11,7 +11,7 @@ const QuestionBanner = () => {
   const [questions, setQuestions] = useState([]);
 
   useEffect(() => {
-    fetch("https://run-the-stack-server-delta.vercel.app/question")
+    fetch("http://localhost:5000/question")
       .then((res) => res.json())
       .then((data) => {
         // Sort the questions by date in descending order

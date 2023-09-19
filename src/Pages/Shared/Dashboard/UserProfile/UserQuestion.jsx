@@ -3,7 +3,19 @@ import { Link } from "react-router-dom";
 import { BiLike } from "react-icons/Bi";
 import { FaCalendar, FaEye, FaHome } from "react-icons/fa";
 import { TiMessages } from "react-icons/ti";
+import { useState } from "react";
+
 const UserQuestion = ({ question }) => {
+
+  const [likes, setLikes] = useState(0);
+
+  const handleLikeClick = () => {
+    if (likes % 2 === 0) {
+      setLikes(likes + 1); // Increase on even clicks.
+    } else {
+      setLikes(likes - 1); // Decrease on odd clicks.
+    }
+  };
   return (
     <div>
       <div key={question._id} className=" border-2  bg-white">
@@ -41,10 +53,11 @@ const UserQuestion = ({ question }) => {
                           <div className="flex gap-4 ">
                             <div>
                               <span className="btn btn-outline text-lg btn-sm rounded-2xl">
-                                <BiLike />
+                              
+                       <BiLike onClick={handleLikeClick} />
                               </span>
                               <span className=" opacity-80 font-semibold ms-2">
-                                100Like
+                                {likes}
                               </span>
                             </div>
                             <div className="btn btn-sm bg-white text-blue-800">

@@ -11,7 +11,7 @@ const ManageClasses = () => {
 
   const handleApproved = (classes) => {
     fetch(
-      `http://https://run-the-stack-server-delta.vercel.app/class/approved/${classes._id}`,
+      `http://http://localhost:5000/class/approved/${classes._id}`,
       {
         method: "PATCH",
       }
@@ -44,7 +44,7 @@ const ManageClasses = () => {
       showLoaderOnConfirm: true,
       preConfirm: (feedback) => {
         return fetch(
-          `http://https://run-the-stack-server-delta.vercel.app/class/deny/${classes._id}`,
+          `http://http://localhost:5000/class/deny/${classes._id}`,
           {
             method: "PATCH",
             headers: {

@@ -37,9 +37,10 @@ const UserProfile = () => {
   const filteredQuestions = questions.filter(
     (question) => question.email === email
   );
+  const filteredUsers = users.filter((user) => user.email === email);
 
   useEffect(() => {
-    fetch("https://run-the-stack-server-delta.vercel.app/users")
+    fetch("http://localhost:5000/users")
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
@@ -47,7 +48,18 @@ const UserProfile = () => {
       });
   }, []);
 
-  const filteredUsers = users.filter((user) => user.email === email);
+  const [isFollowing, setIsFollowing] = useState(false);
+   const [followers, setFollowers] = useState(0); 
+ 
+   const handleFollowClick = () => {
+     setIsFollowing(!isFollowing);
+ 
+     if (isFollowing) {
+       setFollowers(followers - 1);
+     } else {
+       setFollowers(followers + 1);
+     }
+   };
 
   return (
     <div>
@@ -94,7 +106,15 @@ const UserProfile = () => {
                         <span className="relative">Ask</span>
                       </a>
                     </div>
-                    <button className="btn btn-primary my-auto">Follow</button>
+                    <button
+                        onClick={handleFollowClick}
+                        className={`btn btn-primary my-auto ${
+                          isFollowing ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600"
+                        } text-white`}
+                        disabled={isFollowing}
+                      >
+                        {isFollowing ? "Following" : "Follow"}
+                    </button>
                   </div>
                   <div className="divider mx-4"></div>
 
@@ -235,7 +255,7 @@ const UserProfile = () => {
                           <span className="absolute flex items-center justify-center w-full h-full text-orange-600 transition-all duration-300 transform group-hover:translate-x-full ease">
                             <FaUsers />{" "}
                             <span className="ms-2">
-                              Follower <span className="ms-60">5</span>{" "}
+                              Follower <span className="ms-60">{followers}</span>{" "}
                             </span>
                           </span>
                           <span className="relative invisible">

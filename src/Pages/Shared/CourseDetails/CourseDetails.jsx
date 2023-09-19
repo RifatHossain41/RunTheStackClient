@@ -8,7 +8,7 @@ const CourseDetails = () => {
   const [details, setDetails] = useState(null);
 
   useEffect(() => {
-    fetch("https://run-the-stack-server-delta.vercel.app/courses")
+    fetch("http://localhost:5000/courses")
       .then((res) => res.json())
       .then((data) => {
         const course = data.find((course) => course._id == id);

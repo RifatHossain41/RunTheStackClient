@@ -65,7 +65,7 @@ const MyProfile = () => {
       console.log(userImage);
 
       fetch(
-        `http://https://run-the-stack-server-delta.vercel.app/users/${user.email}`,
+        `http://http://localhost:5000/users/${user.email}`,
         {
           method: "PUT",
           headers: {
@@ -107,7 +107,7 @@ const MyProfile = () => {
   };
 
   useEffect(() => {
-    fetch("https://run-the-stack-server-delta.vercel.app/users")
+    fetch("http://localhost:5000/users")
       .then((res) => res.json())
       .then((data) => {
         const matchedUser = data.find(

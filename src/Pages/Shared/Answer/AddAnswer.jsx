@@ -36,7 +36,7 @@ const AddAnswer = () => {
             date: new Date(),
           };
 
-          fetch("http://https://run-the-stack-server-delta.vercel.app/answer", {
+          fetch("http://http://localhost:5000/answer", {
             method: "POST",
             headers: {
               "content-type": "application/json",

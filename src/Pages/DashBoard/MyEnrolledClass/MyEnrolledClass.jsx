@@ -9,7 +9,7 @@ const MyEnrolledClass = () => {
   const [history, setHistory] = useState([]);
 
   useEffect(() => {
-    fetch("http://https://run-the-stack-server-delta.vercel.app/payments")
+    fetch("http://http://localhost:5000/payments")
       .then((res) => res.json())
       .then((data) => {
         const filteredHistory = data.filter(

@@ -10,7 +10,7 @@ const useCarts = () => {
     queryKey: ["carts", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://https://run-the-stack-server-delta.vercel.app/carts?email=${user?.email}`
+        `http://http://localhost:5000/carts?email=${user?.email}`
 
         // , {
         //     headers: {

@@ -21,7 +21,7 @@ const QuestionAnswer = () => {
   const [answers] = useAnswer();
   const [questions, setQuestions] = useState([]);
   useEffect(() => {
-    fetch("https://run-the-stack-server-delta.vercel.app/question")
+    fetch("http://localhost:5000/question")
       .then((res) => res.json())
       .then((data) => {
         setQuestions(data);
